@@ -1,0 +1,28 @@
+[09-Dec-2024 10:29:15 UTC] PHP Warning:  mysqli::__construct(): (HY000/1044): Access denied for user 'actisis1_UV'@'localhost' to database 'actisis1_BDSIRUC' in /home/actisis1/public_html/SIRUC/PHP/RegistroUsu.php on line 10
+[09-Dec-2024 10:40:30 UTC] PHP Warning:  mysqli::__construct(): (HY000/1044): Access denied for user 'actisis1_UV'@'svgt246.serverneubox.com.mx' to database 'actisis1_BDSIRUC' in /home/actisis1/public_html/SIRUC/PHP/RegistroUsu.php on line 10
+[09-Dec-2024 12:24:49 UTC] PHP Warning:  mysqli::__construct(): (HY000/1044): Access denied for user 'actisis1_UV'@'localhost' to database 'actisis1_BDSIRUC' in /home/actisis1/public_html/SIRUC/PHP/RegistroUsu.php on line 10
+[09-Dec-2024 14:40:03 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/actisis1/public_html/SIRUC/PHP/RegistraCongreso.php on line 4
+[09-Dec-2024 14:51:58 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/actisis1/public_html/SIRUC/PHP/RegistraCongreso.php on line 4
+[09-Dec-2024 14:52:35 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/actisis1/public_html/SIRUC/PHP/RegistraCongreso.php on line 4
+[09-Dec-2024 14:58:01 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/actisis1/public_html/SIRUC/PHP/RegistraCongreso.php on line 4
+[09-Dec-2024 14:58:03 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/actisis1/public_html/SIRUC/PHP/RegistraCongreso.php on line 4
+[09-Dec-2024 15:47:07 UTC] PHP Notice:  Trying to get property of non-object in /home/actisis1/public_html/SIRUC/PHP/CargaCongreso.php on line 22
+[09-Dec-2024 15:47:21 UTC] PHP Notice:  Trying to get property of non-object in /home/actisis1/public_html/SIRUC/PHP/CargaCongreso.php on line 22
+[09-Dec-2024 16:37:47 UTC] PHP Notice:  Trying to get property of non-object in /home/actisis1/public_html/SIRUC/PHP/CargaCongreso.php on line 22
+[09-Dec-2024 16:38:04 UTC] PHP Notice:  Trying to get property of non-object in /home/actisis1/public_html/SIRUC/PHP/CargaCongreso.php on line 22
+[09-Dec-2024 21:15:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on boolean in /home/actisis1/public_html/SIRUC/PHP/GuardaArticulo.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/actisis1/public_html/SIRUC/PHP/GuardaArticulo.php on line 24
+[09-Dec-2024 23:49:09 UTC] PHP Warning:  include(PHP/db_connection.php): failed to open stream: No such file or directory in /home/actisis1/public_html/SIRUC/PHP/obtener_articulos.php on line 2
+[09-Dec-2024 23:49:09 UTC] PHP Warning:  include(PHP/db_connection.php): failed to open stream: No such file or directory in /home/actisis1/public_html/SIRUC/PHP/obtener_articulos.php on line 2
+[09-Dec-2024 23:49:09 UTC] PHP Warning:  include(): Failed opening 'PHP/db_connection.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/actisis1/public_html/SIRUC/PHP/obtener_articulos.php on line 2
+[09-Dec-2024 23:49:09 UTC] PHP Notice:  Undefined variable: conn in /home/actisis1/public_html/SIRUC/PHP/obtener_articulos.php on line 6
+[09-Dec-2024 23:49:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/actisis1/public_html/SIRUC/PHP/obtener_articulos.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/actisis1/public_html/SIRUC/PHP/obtener_articulos.php on line 6
+[10-Dec-2024 00:17:26 UTC] PHP Notice:  Undefined index: pdf_archivo in /home/actisis1/public_html/SIRUC/PHP/descargar_pdf.php on line 26
+[10-Dec-2024 00:17:43 UTC] PHP Notice:  Undefined index: pdf_archivo in /home/actisis1/public_html/SIRUC/PHP/descargar_pdf.php on line 26
+[10-Dec-2024 00:20:05 UTC] PHP Notice:  Undefined index: pdf_archivo in /home/actisis1/public_html/SIRUC/PHP/descargar_pdf.php on line 31
+[10-Dec-2024 00:21:09 UTC] PHP Notice:  Undefined index: pdf_archivo in /home/actisis1/public_html/SIRUC/PHP/descargar_pdf.php on line 31

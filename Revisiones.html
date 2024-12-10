@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Artículos</title>
+    <link rel="stylesheet" href="CSS/revisiones.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Consultar Artículos para Revisión</h1>
+
+        <!-- Tabla de Artículos -->
+        <div class="table-container">
+            <table id="articulos-table">
+                <thead>
+                    <tr>
+                        <th>Seleccionar</th>
+                        <th>Título</th>
+                        <th>Resumen</th>
+                        <th>Estatus</th>
+                        <th>Descargar PDF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos de los artículos serán insertados aquí mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Formularios de Selección -->
+        <form action="PHP/procesar_revision.php" method="POST" id="revision-form">
+            <div>
+                <label for="revisor">Seleccionar Revisor:</label>
+                <select name="revisor" id="revisor" required>
+                    <!-- Los revisores se cargarán dinámicamente con JavaScript -->
+                </select>
+            </div>
+
+            <div>
+                <label for="estatus">Seleccionar Estatus:</label>
+                <select name="estatus" id="estatus" required>
+                    <option value="PENDIENTE">PENDIENTE</option>
+                    <option value="ACEPTADO">ACEPTADO</option>
+                    <option value="RECHAZADO">RECHAZADO</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="comentario">Comentario:</label>
+                <textarea name="comentario" id="comentario" rows="4" placeholder="Agregar comentario" required></textarea>
+            </div>
+
+            <input type="submit" value="Guardar Revisión">
+        </form>
+    </div>
+
+    <script>
+        // Cargar los artículos desde el archivo PHP
+        fetch('PHP/consultar_articulos.php')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const articulosTableBody = document.getElementById('articulos-table').getElementsByTagName('tbody')[0];
+
+        data.forEach(articulo => {
+            const row = articulosTableBody.insertRow();
+
+            // Crear celdas para cada columna
+            const selectCell = row.insertCell(0);
+            const titleCell = row.insertCell(1);
+            const resumenCell = row.insertCell(2);
+            const estatusCell = row.insertCell(3);
+            const downloadCell = row.insertCell(4);
+
+            // Insertar contenido en las celdas
+            selectCell.innerHTML = `<input type="checkbox" name="articulos[]" value="${articulo.IDArticulo}">`;
+            titleCell.textContent = articulo.Titulo;
+            resumenCell.textContent = articulo.Resumen;
+            estatusCell.textContent = articulo.Estatus;
+            downloadCell.innerHTML = `<a href="${articulo.PDF}" target="_blank">Descargar PDF</a>`;
+        });
+    })
+    .catch(error => console.error('Error al cargar los artículos:', error));
+
+        // Cargar los revisores para el combobox
+        fetch('PHP/obtener_revisores.php')
+            .then(response => response.json())
+            .then(data => {
+                const revisorSelect = document.getElementById('revisor');
+                
+                data.forEach(revisor => {
+                    const option = document.createElement('option');
+                    option.value = revisor.IDUsuario;
+                    option.textContent = revisor.Nombre;
+                    revisorSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error al cargar los revisores:', error));
+    </script>
+</body>
+</html>

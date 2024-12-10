@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Artículo</title>
+    <link rel="stylesheet" href="CSS/EstiloArticulo.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Incluimos jQuery -->
+    <script>
+        // Función para cargar los usuarios y temas cuando la página carga
+        $(document).ready(function() {
+            // Cargar usuarios
+            $.ajax({
+                url: 'PHP/CargaUsuarios.php', // El archivo PHP que devuelve los usuarios
+                type: 'GET',
+                success: function(data) {
+                    $('#usuario_id').html(data); // Insertamos los datos en el combo de usuarios
+                }
+            });
+
+            // Cargar temas
+            $.ajax({
+                url: 'PHP/CargaTemas.php', // El archivo PHP que devuelve los temas
+                type: 'GET',
+                success: function(data) {
+                    $('#tema_id').html(data); // Insertamos los datos en el combo de temas
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Registro de Artículo</h1>
+            <p class="subtitle">Llena el formulario para registrar un nuevo artículo</p>
+        </header>
+        <form action="PHP/GuardaArticulo.php" method="POST" enctype="multipart/form-data">
+            <!-- Campo Usuario -->
+            <div class="form-group">
+                <label for="usuario_id">Usuario</label>
+                <select name="usuario_id" id="usuario_id" required>
+                    <option value="" disabled selected>Selecciona un usuario</option>
+                    <!-- Los usuarios serán cargados dinámicamente con jQuery -->
+                </select>
+            </div>
+
+            <!-- Campo Tema -->
+            <div class="form-group">
+                <label for="tema_id">Tema</label>
+                <select name="tema_id" id="tema_id" required>
+                    <option value="" disabled selected>Selecciona un tema</option>
+                    <!-- Los temas serán cargados dinámicamente con jQuery -->
+                </select>
+            </div>
+
+            <!-- Otros campos -->
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" name="titulo" id="titulo" maxlength="100" required placeholder="Ingresa el título del artículo">
+            </div>
+
+            <div class="form-group">
+                <label for="resumen">Resumen</label>
+                <textarea name="resumen" id="resumen" rows="4" maxlength="700" required placeholder="Escribe el resumen del artículo"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="palabras_clave">Palabras Clave</label>
+                <input type="text" name="palabras_clave" id="palabras_clave" maxlength="200" required placeholder="Escribe palabras clave separadas por comas">
+            </div>
+
+            <div class="form-group">
+                <label for="archivo_pdf">Archivo PDF</label>
+                <input type="file" name="archivo_pdf" id="archivo_pdf" accept=".pdf" required>
+            </div>
+
+            <!-- Botón de Enviar -->
+            <button type="submit" class="btn-submit">Registrar Artículo</button>
+        </form>
+    </div>
+</body>
+</html>
